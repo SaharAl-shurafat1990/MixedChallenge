@@ -16,12 +16,12 @@ module.exports = function (app, express) {
         if (err) {
             res.send(500, err);
         } else {
-            res.send(204);
+            res.send(charge);
             console.log(charge);
+            
         }
     });
 });
-	
 
 };
 
