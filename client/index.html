@@ -70,13 +70,14 @@
 <div >
   there are  {{ donations.length }} donations
 <ul>
-<li ng-repeat="donation in donations"> {{donation.firstName}}</li>
+<li ng-repeat="donation in donations">balance_transaction: {{donation.balance_transaction}}</li>
 </ul>
 <form ng-submit="show()">
 <button type="submit">show</button>
   
 </form>
 </div>
+
 <script src="lib/angular/angular.js"></script>
 <script src="lib/angular-route/angular-route.js"></script>
 <script src="controller.js"></script>

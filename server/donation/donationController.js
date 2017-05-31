@@ -19,7 +19,7 @@ module.exports ={
 
 		Donation.create({
 		firstName:firstName,
-		lastName:lastName
+		lastName:lastName,
 		},function(err,ok){
 			if(err){
 				res.json(err);
