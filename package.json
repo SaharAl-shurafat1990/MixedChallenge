@@ -2,8 +2,10 @@
   "name": "MixedTask",
   "version": "0.0.1",
   "dependencies": {
+    "angular-payments": "^1.0.7",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "mongoose": "^4.10.4",
     "morgan": "^1.8.2",
     "stripe": "^4.22.0"
   },

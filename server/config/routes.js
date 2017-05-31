@@ -1,7 +1,10 @@
+var donationController=require('.././donation/donationController.js');
 var stripe = require('stripe')("sk_test_r2IHx0ZqLtOJ2eeZeZlSSlvG");
-
 module.exports = function (app, express) {
 
+    app.get('/api/getAll',donationController.getAllDonations);
+    app.post('/api/user',donationController.addDonation);
+   
 	app.post('/api/charge', function(req, res) {
     var stripeToken = req.body.stripeToken;
     console.log(stripeToken)
@@ -16,12 +19,12 @@ module.exports = function (app, express) {
         if (err) {
             res.send(500, err);
         } else {
-            res.send(charge);
-            console.log(charge);
+            res.send("Thank you");
             
         }
     });
 });
+    
 
 };
 
