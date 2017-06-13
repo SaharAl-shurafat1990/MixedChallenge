@@ -14,8 +14,8 @@ module.exports ={
 	},
 	addCharge:function(req, res) {
 		var stripeToken = req.body.stripeToken;
-		console.log(stripeToken)
-		var amount = 1000;
+		console.log(req)
+		var amount = 100;
 
 		stripe.charges.create({
 			card: stripeToken,

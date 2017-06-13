@@ -19,96 +19,93 @@
 
         <img class="img-responsive" src="https://d2g8igdw686xgo.cloudfront.net/20498350_1495838183.4169_funddescription.jpg" alt="" width="80%">
         <form id="form" action='/api/charge' method="POST">
-          <form class="form-horizontal" ng-submit="create()">
 
+          <h1> Card information</h1>
+          <label>Card #: <input type="text" size="16" data-stripe="number" placeholder="Card number" /></label>
+          <label>Expiry month: <input type="text" size="2" data-stripe="exp-month" placeholder="MM" /></label>
+          <label>year: <input type="text" size="2" data-stripe="exp-year" placeholder="YY" /></label>
+          <label>CVC: <input type="text" size="4" data-stripe="cvc" placeholder="CVC" /></label>
 
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-block">Donate Now</button>
+        </form>
 
-            <h1> Card information</h1>
-            <label>Card #: <input type="text" size="16" data-stripe="number" placeholder="Card number" /></label>
-            <label>Expiry month: <input type="text" size="2" data-stripe="exp-month" placeholder="MM" /></label>
-            <label>year: <input type="text" size="2" data-stripe="exp-year" placeholder="YY" /></label>
-            <label>CVC: <input type="text" size="4" data-stripe="cvc" placeholder="CVC" /></label>
-
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block">Donate Now</button>
+        <h1>show Donations</h1>
+        <div >
+          there are  {{ donations.length }} donations
+          <ul>
+            <li ng-repeat="donation in donations">balance_transaction: {{donation.balance_transaction}}</li>
+          </ul>
+          <form ng-submit="show()">
+            <button type="submit">show</button>
+            
           </form>
 
-          <h1>show Donations</h1>
-          <div >
-            there are  {{ donations.length }} donations
-            <ul>
-              <li ng-repeat="donation in donations">balance_transaction: {{donation.balance_transaction}}</li>
-            </ul>
-            <form ng-submit="show()">
-              <button type="submit">show</button>
-              
-            </form>
-
-          </div>
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <form class="form-horizontal" ng-submit="create()">
-
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="fn">First name</label>  
-              <div class="col-md-4">
-               <input id="fn" name="fn" type="text" placeholder="first name" class="form-control input-md" ng-model="donation.firstName">
-               
-             </div>
-           </div>
-
-           <!-- Text input-->
-           <div class="form-group" >
-            <label class="col-md-4 control-label" for="ln">Last name</label>  
-            <div class="col-md-4">
-              <input id="ln" name="ln" type="text" placeholder="last name" class="form-control input-md" ng-model="donation.lastName">
-              
-            </div>
-          </div>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <form class="form-horizontal" ng-submit="create()">
 
           <!-- Text input-->
-          <div class="form-group" >
-            <label class="col-md-4 control-label" for="email">Email</label>  
-            <div class="col-md-4">
-              <input id="email" name="email" type="text" placeholder="email" class="form-control input-md" ng-model="donation.email">
-              
-            </div>
-          </div>
-          <div class="form-group" >
-            <label class="col-md-4 control-label" >Donation amount</label>  
-            <div class="col-md-4">
-              <input class="form-control input-md">
-            </div>
-          </div>
-          <div class="form-group" >
-            <label class="col-md-4 control-label" > Message </label>  
-            <div class="col-md-4">
-              <input  class="form-control input-md">
-            </div>
-          </div>
           <div class="form-group">
-            <label class="col-md-4 control-label" for="fn"></label>  
+            <label class="col-md-4 control-label" for="fn">First name</label>  
             <div class="col-md-4">
-              <div class="form-group">
-                <div class="col-sm-9 col-sm-offset-3">
-                  <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                </div>
-              </div>
-            </form>
+             <input id="fn" name="fn" type="text" placeholder="first name" class="form-control input-md" ng-model="donation.firstName">
+             
+           </div>
+         </div>
+
+         <!-- Text input-->
+         <div class="form-group" >
+          <label class="col-md-4 control-label" for="ln">Last name</label>  
+          <div class="col-md-4">
+            <input id="ln" name="ln" type="text" placeholder="last name" class="form-control input-md" ng-model="donation.lastName">
+            
           </div>
-          
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group" >
+          <label class="col-md-4 control-label" for="email">Email</label>  
+          <div class="col-md-4">
+            <input id="email" name="email" type="text" placeholder="email" class="form-control input-md" ng-model="donation.email">
+            
+          </div>
+        </div>
+        <div class="form-group" >
+          <label class="col-md-4 control-label" >Donation amount</label>  
+          <div class="col-md-4">
+            <input class="form-control input-md">
+          </div>
+        </div>
+        <div class="form-group" >
+          <label class="col-md-4 control-label" > Message </label>  
+          <div class="col-md-4">
+            <input  class="form-control input-md">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="fn"></label>  
+          <div class="col-md-4">
+            <div class="form-group">
+              <div class="col-sm-9 col-sm-offset-3">
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+              </div>
+            </div>
+          </form>
         </div>
         
       </div>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-      <script src="https://js.stripe.com/v2/"></script>
+      
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://js.stripe.com/v2/"></script>
 
-      <script type="text/javascript">
-        Stripe.setPublishableKey("pk_test_b63OPVxQncBHRF5uM35IVx4S");
+    <script type="text/javascript">
+      Stripe.setPublishableKey("pk_test_b63OPVxQncBHRF5uM35IVx4S");
 
-        var $form = $('#form');
-        $form.on('submit', function() {
+      var $form = $('#form');
+      $form.on('submit', function() {
         // First submit the card information to Stripe to get back a token
         Stripe.card.createToken($form, function(status, response) {
           var token = response.id;
