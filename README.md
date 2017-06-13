@@ -3,4 +3,5 @@ using nodejs language to create a donation form . Use a Stripe (www.stripe.com) 
 
 How to run the task:
 1-npm install
-2-npm start
+2-mongod
+3-npm start/server/node server.js
