@@ -37,7 +37,7 @@ module.exports ={
 						res.json(err);
 					}
 					else{
-						res.json("Thank you :)!!")
+						res.json("Thank you for your donation:)!!")
 
 					}
 
