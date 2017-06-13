@@ -14,8 +14,9 @@ module.exports ={
 	},
 	addCharge:function(req, res) {
 		var stripeToken = req.body.stripeToken;
-		console.log(req)
-		var amount = 100;
+
+		var amount = req.body.amount[0];
+		console.log(amount);
 
 		stripe.charges.create({
 			card: stripeToken,
@@ -31,6 +32,7 @@ module.exports ={
 					id:charge.id,
 					token:stripeToken,
 					status:charge.status,
+					donationamount:amount,
 					balance_transaction:charge.balance_transaction
 				},function(err,ok){
 					if(err){

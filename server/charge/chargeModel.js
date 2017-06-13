@@ -5,6 +5,7 @@ var chargeSchema = new mongoose.Schema({
 	id:String,
 	balance_transaction:String,
 	token:String,
+	donationamount:String,
 	status:String	
 });
 
